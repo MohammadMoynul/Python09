@@ -42,28 +42,19 @@ class Car:
 
 # Main program
 if __name__ == "__main__":
-    # Create 10 cars
     cars = [Car(f"ABC-{i+1}", random.randint(100, 200)) for i in range(10)
-
-
-    # Print table header
     print(f"{'Registration':<10} | {'Max Speed (km/h)':<14} | {'Current Speed':<13} | {'Travelled Distance':<17}")
     print("-" * 60)
 
     winner = None
     while not winner:
         for car in cars:
-            # Random speed change between -10 and +15
             speed_change = random.randint(-10, 15)
             car.accelerate(speed_change)
-            # Drive for one hour
             car.drive(1)
-
-            # Check if any car has reached 10,000 km
             if car.travelled_distance >= 10000:
                 winner = car
 
-    # Print final properties of all cars
     for car in cars:
         print(car)
 
